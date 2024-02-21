@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  notes_api:
+    image: calculator_api
+    build:
+      context: .
+    container_name: calculator_api
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    networks:
+      - custom
+
+networks:
+  custom:
+    driver: bridge

@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block head %}
+
+<link href="{{ url_for('static', path='/css/calculator.css') }}" rel="stylesheet">
+<script src="{{ url_for('static', path='/js/calculator.js') }}"></script>
+
+{% endblock %}
+
+{% block content %}
+<div class="flex flex-col items-center">
+    <h1 class="text-xl" id="calc-header">CALCULATOR</h1>
+    <div class="py-4 screen" >
+        <h2 class="text-xl font-bold" id="task">enter the task</h2>
+        <h2 class="text-xl font-bold" id="solution" >=</h2>
+    </div>
+    <div class="py-0.5" role="group">
+        <button id="calc-keyboard-button" data-key="(">(</button>
+        <button id="calc-keyboard-button" data-key=")">)</button>
+        <button id="calc-keyboard-button" data-key="AC">AC</button>
+        <button id="calc-keyboard-button" data-key="C">C</button>
+    </div>
+    <div class="py-0.5" role="group">
+        <button id="calc-keyboard-button" data-key="7">7</button>
+        <button id="calc-keyboard-button" data-key="8">8</button>
+        <button id="calc-keyboard-button" data-key="9">9</button>
+        <button id="calc-keyboard-button" data-key="/">/</button>
+    </div>
+    <div class="py-0.5" role="group">
+        <button id="calc-keyboard-button" data-key="4">4</button>
+        <button id="calc-keyboard-button" data-key="5">5</button>
+        <button id="calc-keyboard-button" data-key="6">6</button>
+        <button id="calc-keyboard-button" data-key="*">x</button>
+    </div>
+    <div class="py-0.5" role="group">
+        <button id="calc-keyboard-button" data-key="1">1</button>
+        <button id="calc-keyboard-button" data-key="2">2</button>
+        <button id="calc-keyboard-button" data-key="3">3</button>
+        <button id="calc-keyboard-button" data-key="-">-</button>
+    </div>
+    <div class="py-0.5" role="group">
+        <button id="calc-keyboard-button" data-key="0">0</button>
+        <button id="calc-keyboard-button" data-key="000">000</button>
+        <button id="calc-keyboard-button" data-key=".">.</button>
+        <button id="calc-keyboard-button" data-key="+">+</button>
+    </div>
+    <div class="py-4" role="group">
+        <button id="help-button" >Help</button>
+    </div>
+    <div class="py-4" role="group">
+        <form>
+                <input id="user-name" placeholder="Name" type="text" class="user-name-input">
+                <button id="user-name-submit" type="submit" value="Register">Register</button>
+        </form>
+
+    </div>
+    <div class="py-0.5" role="group">
+        <h3 id="session-id" class="text-l" >session id -</h3>
+    </div>
+
+</div>
+{% endblock %}
