@@ -40,8 +40,8 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             let solution = "= ";
 
-            if (data.solution !== "the task is not correct") {
-                solution += data.solution;
+            if (data['solution'] !== "the task is not correct") {
+                solution += data['solution'];
             }
             solutionText.innerHTML = solution;
         })
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             name = localStorage.getItem('user-name');
             calcHeader.innerHTML = "Calculator for " + name;
-            sessionId.innerHTML = "session id - " + data.session ;
+            sessionId.innerHTML = "session id - " + data['session'];
         })
         .catch(error => {
             sessionId.innerHTML = `api interacting error`;
@@ -81,6 +81,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     nameForm.onsubmit = function() {
         regUserName(userName.value)
+        .catch(error => {
+            console.log('Error', error);
+        });
 
         return false;
     }
@@ -90,13 +93,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     taskText.innerHTML = localStorage.getItem('task');
-    outSolution(localStorage.getItem('task'));
+    outSolution(localStorage.getItem('task'))
+    .catch(error => {
+        console.log('Error', error);
+    });
 
     if (!localStorage.getItem('user-name')){
         localStorage.setItem('user-name', "Not defined");
     }
 
-    outUserName();
+    outUserName()
+    .catch(error => {
+        console.log('Error', error);
+    });
 
     calcKeyboardButtons.forEach(function(button) {
         button.onclick = function() {
@@ -124,8 +133,16 @@ document.addEventListener('DOMContentLoaded', function() {
             localStorage.setItem('task', task);
             taskText.innerHTML = task;
 
-            outSolution(task);
-            outUserName();
+            outSolution(task)
+            .catch(error => {
+                console.log('Error', error);
+            });
+
+            outUserName()
+            .catch(error => {
+                console.log('Error', error);
+            });
+
         };
     });
 })
