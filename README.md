@@ -4,10 +4,10 @@
 
 \
 Backend:
-- endpoints - get calculator html page,
-- endpoints - get solution in response to task,  
-- endpoints - get help text,
-- endpoints - get user session id,
+- endpoint - get calculator html page,
+- endpoint - get solution in response to task,  
+- endpoint - get help text,
+- endpoint - get user session id,
 - session marking middleware.
 
 \
